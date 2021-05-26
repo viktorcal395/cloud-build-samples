@@ -11,16 +11,20 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   id: 'builder'
+<<<<<<< HEAD
   args: ['build', '-t', 'gcr.io/myProject/myimage', '.']
+=======
+  args: ['build', '-t', 'gcr.io/test-run-vic/myimage', '.']
+>>>>>>> 2c4966a7bd29c8d2dece56dc92e9985ce7e5f3f7
  
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   id: 'pusher'
+<<<<<<< HEAD
   args: ['push', 'gcr.io/myProject/myimage']
   waitFor: ['builder']
   
@@ -60,3 +64,9 @@ availableSecrets:
   secretManager:
   - versionName: projects/myProject/secrets/secrettest/versions/latest
     env: 'TEST'
+=======
+  args: ['push', 'gcr.io/test-run-vic/myimage']
+  waitFor: ['builder']
+  
+
+>>>>>>> 2c4966a7bd29c8d2dece56dc92e9985ce7e5f3f7
