@@ -15,58 +15,12 @@ steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   id: 'builder'
-<<<<<<< HEAD
-  args: ['build', '-t', 'gcr.io/myProject/myimage', '.']
-=======
   args: ['build', '-t', 'gcr.io/test-run-vic/myimage', '.']
->>>>>>> 2c4966a7bd29c8d2dece56dc92e9985ce7e5f3f7
  
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   id: 'pusher'
-<<<<<<< HEAD
-  args: ['push', 'gcr.io/myProject/myimage']
-  waitFor: ['builder']
-  
-# Install dependencies
-- name: python
-  id: 'installer'
-  entrypoint: pip
-  args: ["install", "-r", "requirements.txt", "--user"]
-  waitFor: ['pusher']
- 
-# Deploy container image to Cloud Run
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  id: 'deployer'
-  entrypoint: gcloud
-  args: ['run', 'deploy', 'mycrservice', '--image', 'gcr.io/myProject/myimage:latest', 
-         '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated', 
-         '--port','8080','--max-instances','2']
-  env:
-  - 'GOOGLE_APPLICATION_CREDENTIALS=myProject-361644a10c27.json'
-  - 'INSTANCE_CONNECTION_NAME=myProject:us-central1:workshopdb'
-  - 'DB_USER=xxx'
-  - 'DB_PASS=xxx'
-  - 'DB_NAME=mydb'
-  waitFor: ['installer']
-  
-- name: 'gcr.io/cloud-builders/gcloud'
-  id: "Test step"
-  entrypoint: "echo"
-  args:
-    - $$TEST
-  secretEnv: ['TEST']
-        
-images:
-- gcr.io/myProject/myimage
- 
-availableSecrets:
-  secretManager:
-  - versionName: projects/myProject/secrets/secrettest/versions/latest
-    env: 'TEST'
-=======
   args: ['push', 'gcr.io/test-run-vic/myimage']
   waitFor: ['builder']
   
 
->>>>>>> 2c4966a7bd29c8d2dece56dc92e9985ce7e5f3f7
