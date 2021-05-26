@@ -20,7 +20,7 @@ steps:
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   id: 'pusher'
-  args: ['push', 'gcr.io/myProject/myimage']
+  args: ['push', 'gcr.io/test-run-vic/myimage']
   waitFor: ['builder']
   
 # Install dependencies
@@ -38,8 +38,8 @@ steps:
          '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated', 
          '--port','8080','--max-instances','2']
   env:
-  - 'GOOGLE_APPLICATION_CREDENTIALS=myProject-361644a10c27.json'
-  - 'INSTANCE_CONNECTION_NAME=myProject:us-central1:workshopdb'
+  - 'GOOGLE_APPLICATION_CREDENTIALS=test-run-vic-361644a10c27.json'
+  - 'INSTANCE_CONNECTION_NAME=test-run-vic:us-central1:workshopdb'
   - 'DB_USER=xxx'
   - 'DB_PASS=xxx'
   - 'DB_NAME=mydb'
@@ -53,9 +53,9 @@ steps:
   secretEnv: ['TEST']
         
 images:
-- gcr.io/myProject/myimage
+- gcr.io/test-run-vic/myimage
  
 availableSecrets:
   secretManager:
-  - versionName: projects/myProject/secrets/secrettest/versions/latest
+  - versionName: projects/test-run-vic/secrets/secrettest/versions/latest
     env: 'TEST'
