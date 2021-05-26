@@ -34,7 +34,7 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   id: 'deployer'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'mycrservice', '--image', 'gcr.io/myProject/myimage:latest', 
+  args: ['run', 'deploy', 'mycrservice', '--image', 'gcr.io/test-run-vic/myimage:latest', 
          '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated', 
          '--port','8080','--max-instances','2']
   env:
