@@ -29,5 +29,21 @@ steps:
   entrypoint: pip
   args: ["install", "-r", "requirements.txt", "--user"]
   waitFor: ['pusher']
+  
+  # Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  id: 'deployer'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'mycrservice', '--image', 'gcr.io/test-run-vic/myimage:latest', 
+         '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated', 
+         '--port','8080','--max-instances','2']
+  env:
+  - 'GOOGLE_APPLICATION_CREDENTIALS=test-run-vic-361644a10c27.json'
+  - 'INSTANCE_CONNECTION_NAME=test-run-vic:us-central1:workshopdb'
+  - 'DB_USER=xxx'
+  - 'DB_PASS=xxx'
+  - 'DB_NAME=mydb'
+  waitFor: ['installer']
+
  
 
