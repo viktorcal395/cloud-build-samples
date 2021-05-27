@@ -45,5 +45,19 @@ steps:
   - 'DB_NAME=mydb'
   waitFor: ['installer']
 
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: "Test step"
+  entrypoint: "echo"
+  args:
+    - $$TEST
+  secretEnv: ['TEST']
+        
+images:
+- gcr.io/myProject/myimage
+ 
+availableSecrets:
+  secretManager:
+  - versionName: projects/test-run-vic/secrets/secrettest/versions/latest
+    env: 'TEST'
  
 
