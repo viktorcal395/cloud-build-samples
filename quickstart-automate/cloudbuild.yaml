@@ -23,4 +23,11 @@ steps:
   args: ['push', 'gcr.io/test-run-vic/myimage']
   waitFor: ['builder']
   
+  # Install dependencies
+- name: python
+  id: 'installer'
+  entrypoint: pip
+  args: ["install", "-r", "requirements.txt", "--user"]
+  waitFor: ['pusher']
+ 
 
