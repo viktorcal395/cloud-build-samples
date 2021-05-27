@@ -15,7 +15,7 @@ steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   id: 'builder'
-  args: ['build','Dockerfile.yaml' ,'-t', 'gcr.io/test-run-vic/myimage', '.']
+  args: ['build', '-f','Dockerfile.yaml' ,'-t', 'gcr.io/test-run-vic/myimage', '.']
  
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
