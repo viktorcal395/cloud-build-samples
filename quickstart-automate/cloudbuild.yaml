@@ -53,7 +53,7 @@ steps:
   secretEnv: ['TEST']
         
 images:
-- gcr.io/myProject/myimage
+- gcr.io/test-run-vic/myimage
  
 availableSecrets:
   secretManager:
