@@ -52,12 +52,6 @@ steps:
     - $$TEST
   secretEnv: ['TEST']
         
-images:
-- gcr.io/test-run-vic/myimage
- 
-availableSecrets:
-  secretManager:
-  - versionName: projects/test-run-vic/secrets/secrettest/versions/latest
-    env: 'TEST'
+
  
 
