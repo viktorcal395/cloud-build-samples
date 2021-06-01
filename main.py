@@ -106,7 +106,7 @@ def init_unix_connection_engine(db_config):
     db_pass = "roo"
     db_name = "train"
     db_socket_dir = os.environ.get("DB_SOCKET_DIR", "/cloudsql")
-    cloud_sql_connection_name = "test-run-vic:us-central1:victest" 
+    cloud_sql_connection_name = "victest" 
     #cloud_sql_connection_name = os.environ["CLOUD_SQL_CONNECTION_NAME"]
 
     pool = sqlalchemy.create_engine(
