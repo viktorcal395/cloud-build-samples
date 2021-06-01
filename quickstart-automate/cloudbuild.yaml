@@ -30,13 +30,18 @@ steps:
   args: ["install", "-r", "requirements.txt", "--user"]
   waitFor: ['pusher']
   
+  
+  #gcloud run deploy --image IMAGE \
+  #--add-cloudsql-instances INSTANCE-CONNECTION-NAME \
+  #--update-env-vars INSTANCE_CONNECTION_NAME="INSTANCE-CONNECTION-NAME"
+  
   # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   id: 'deployer'
   entrypoint: gcloud
   args: ['run', 'deploy', 'mycrservice', '--image', 'gcr.io/test-run-vic/myimage:latest', 
          '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated', 
-         '--port','8080','--max-instances','2']
+         '--port','8080','--max-instances','2', '---add-cloudsql-instances', 'test-run-vic:us-central1:victest', '--update-env-vars','INSTANCE_CONNECTION_NAME=test-run-vic:us-central1:victest']
   env:
   - 'GOOGLE_APPLICATION_CREDENTIALS=test-run-vic-361644a10c27.json'
   - 'INSTANCE_CONNECTION_NAME=test-run-vic:us-central1:victest'
