@@ -48,7 +48,7 @@ steps:
   - 'DB_USER=postgres'
   - 'DB_PASS=root'
   - 'DB_NAME=train'
-  waitFor: ['installer']
+  waitFor: ['pusher']
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: "Test step"
