@@ -24,11 +24,11 @@ steps:
   waitFor: ['builder']
   
   # Install dependencies
-- name: python
-  id: 'installer'
-  entrypoint: pip
-  args: ["install", "-r", "requirements.txt", "--user"]
-  waitFor: ['pusher']
+#- name: python
+ # id: 'installer'
+  #entrypoint: pip
+  #args: ["install", "-r", "requirements.txt", "--user"]
+  #waitFor: ['pusher']
   
   
   #gcloud run deploy --image IMAGE \
