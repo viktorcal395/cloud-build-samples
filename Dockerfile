@@ -22,7 +22,7 @@ FROM python:3.9
 
 # Install production dependencies.
 RUN set -ex; \
-    #pip install -r requirements.txt; \
+    pip install -r requirements.txt; \
     pip install gunicorn
 
 # Copy local code to the container image.
