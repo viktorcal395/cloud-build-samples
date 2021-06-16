@@ -18,7 +18,7 @@ FROM python:3.9
 
 # Copy application dependency manifests to the container image.
 # Copying this separately prevents re-running pip install on every code change.
-# COPY requirements.txt ./
+COPY requirements.txt ./
 
 # Install production dependencies.
 RUN set -ex; \
