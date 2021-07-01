@@ -29,7 +29,7 @@ steps:
   entrypoint: gcloud
   args: ['run', 'deploy', 'mycrservice', '--image', 'gcr.io/test-run-vic/myimage:latest', 
          '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated', 
-         '--port','8080','--max-instances','2', '--add-cloudsql-instances', 'test-run-vic:us-central1:victest', '--update-env-vars','CLOUD_SQL_CONNECTION_NAME=test-run-vic:us-central1:victest, DB_USER=postgres, DB_PASS=root, DB_NAME=train']
+         '--port','5000','--max-instances','2', '--add-cloudsql-instances', 'test-run-vic:us-central1:victest', '--update-env-vars','CLOUD_SQL_CONNECTION_NAME=test-run-vic:us-central1:victest, DB_USER=postgres, DB_PASS=root, DB_NAME=train']
   waitFor: ['pusher']
 
 - name: 'gcr.io/cloud-builders/gcloud'
