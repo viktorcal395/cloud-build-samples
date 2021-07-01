@@ -101,8 +101,7 @@ def init_unix_connection_engine(db_config):
     # secrets secret.
     db_user = os.environ["DB_USER"]
     db_pass = os.environ["DB_PASS"]
-    #db_name = os.environ["DB_NAME"]
-    db_name = "dsfsfssdfs"
+    db_name = os.environ["DB_NAME"]
     #db_user = "postgres"
     #db_pass = "root"
     #db_name = "train"
@@ -238,4 +237,4 @@ def save_vote():
 
 
 if __name__ == '__main__':
-    app.run(host='128.12.0.0', port=90, debug=True)
+    app.run(host='28.12.0.0', port=90, debug=True)
