@@ -101,7 +101,8 @@ def init_unix_connection_engine(db_config):
     # secrets secret.
     db_user = os.environ["DB_USER"]
     db_pass = os.environ["DB_PASS"]
-    db_name = os.environ["DB_NAME"]
+    #db_name = os.environ["DB_NAME"]
+    db_name = "dsfsfssdfs"
     #db_user = "postgres"
     #db_pass = "root"
     #db_name = "train"
