@@ -22,6 +22,7 @@ COPY requirements.txt ./
 
 # Install production dependencies.
 RUN set -ex; \
+    pip install --upgrade pip==18.1; \
     pip install -r requirements.txt --use-deprecated=legacy-resolver; \
     pip install gunicorn
 
