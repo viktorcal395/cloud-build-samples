@@ -22,7 +22,7 @@ COPY requirements.txt ./
 
 # Install production dependencies.
 RUN set -ex; \
-    pip install -r requirements.txt; \
+    pip install -r requirements.txt --use-deprecated=legacy-resolver; \
     pip install gunicorn
 
 # Copy local code to the container image.
